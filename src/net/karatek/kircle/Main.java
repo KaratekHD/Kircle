@@ -32,9 +32,12 @@ package net.karatek.kircle;
  * Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
  */
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class Main {
 
@@ -50,7 +53,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             try {
-                System.out.print("Aktion [1/2/3/4/5/l/v/h/q]: ");
+                System.out.print("Aktion [1/2/3/4/5/6/l/v/h/i/s/q]: ");
                 String input = br.readLine();
                 Double r = null;
                 Double u = null;
@@ -178,11 +181,27 @@ public class Main {
                         extentFromArea(A, unit);
                         System.out.println();
                         break;
+                    case "i":
+                        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                            Desktop.getDesktop().browse(new URI("https://github.com/KaratekHD/Kircle/issues"));
+                        } else {
+                            System.out.println("Besuche https://github.com/KaratekHD/Kircle/issues");
+                        }
+                        break;
+                    case "s":
+                        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                            Desktop.getDesktop().browse(new URI("https://github.com/KaratekHD/Kircle/"));
+                        } else {
+                            System.out.println("Besuche https://github.com/KaratekHD/Kircle/");
+                        }
+                        break;
                     default:
                         if(!input.equals("")) System.out.println("Ungültige Eingabe.");
                         break;
                 }
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
 
@@ -215,6 +234,8 @@ public class Main {
         System.out.println("    [l] Lizensinformationen und Copyright");
         System.out.println("    [v] Versionsinformationen");
         System.out.println("    [h] Diese Liste anzeigen");
+        System.out.println("    [i] Hilfe holen");
+        System.out.println("    [s] Quellcode");
         System.out.println("    [q] Beenden");
     }
 
