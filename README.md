@@ -1,0 +1,7 @@
+# Kircle
+Kleines Programm, um mit Kreisen zu rechnen. 
+## Verwendung
+Wird das Program ausgeführt, listet es eine Liste an Aktionen auf. Das jeweilige Zeichen muss eingegeben werden und Enter muss gedrückt werden.
+Der Rest ist vollständig interaktiv.
+## Lizenz
+GPL3
