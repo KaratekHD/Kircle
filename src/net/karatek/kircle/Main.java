@@ -299,7 +299,13 @@ public class Main {
 
     public static void area(double r, String unit) {
         System.out.println("r = " + r + " " + unit);
-
+        double A = Math.PI * r * r;
+        System.out.println("A = π * r * r");
+        System.out.println("A = π * " + r + " * " + r);
+        A = A * 100;
+        A = Math.round(A);
+        A = A / 100;
+        System.out.println("A = " + A + unit);
     }
 
     public static void extent(double r, String unit) {
