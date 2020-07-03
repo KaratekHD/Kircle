@@ -32,18 +32,7 @@ package net.karatek.kircle.calc;
  * Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
  */
 
-public class Radius {
-    public void fromArea(double A, String unit) {
-        System.out.println("A = " + A + " " + unit);
-        double r = Math.sqrt(A) / Math.sqrt(Math.PI);
-        System.out.println("r = √A : √π");
-        System.out.println("r = " + Math.sqrt(A) + " : √π");
-        r = r * 100;
-        r = Math.round(r);
-        r = r / 100;
-        System.out.println("r = " + r + " " +  unit.substring(0, unit.length() - 1));
-    }
-
+public class Area {
     public void fromExtent(double u, String unit) {
         System.out.println("u = " + u + " " + unit);
         double r = u / (2 * Math.PI);
@@ -53,6 +42,23 @@ public class Radius {
         r = Math.round(r);
         r = r / 100;
         System.out.println("r = " + r + " " +  unit);
+        double A = Math.PI * r * r;
+        System.out.println("A = π * r * r");
+        System.out.println("A = π * " + r + " * " + r);
+        A = A * 100;
+        A = Math.round(A);
+        A = A / 100;
+        System.out.println("A = " + A + " " +  unit);
     }
 
+    public void fromRadius(double r, String unit) {
+        System.out.println("r = " + r + " " + unit);
+        double A = Math.PI * r * r;
+        System.out.println("A = π * r * r");
+        System.out.println("A = π * " + r + " * " + r);
+        A = A * 100;
+        A = Math.round(A);
+        A = A / 100;
+        System.out.println("A = " + A + unit);
+    }
 }
